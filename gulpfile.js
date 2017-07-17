@@ -42,10 +42,10 @@ gulp.task('watchChangesCSS', function(){
 gulp.task('sass-watch', ['prepararCSS'], function(){
 	browserSync.reload();
 });
-gulp.task("js-watch", ["js"], function () {
+gulp.task("js-watch", ["prepararJS"], function () {
 	browserSync.reload();
 });
 
-gulp.task("html-watch", ["html"], function () {
+gulp.task("html-watch", ["prepararHTML"], function () {
 	browserSync.reload();
 });
