@@ -1,0 +1,23 @@
+{
+  "name": "gulp-manu",
+  "version": "1.0.0",
+  "description": "ejercicio con manu de gulp",
+  "main": "server.js",
+  "scripts": {
+    "test": "\u001b[A\u001b[B\u001b[B\u001b[A\u001b[C\u001b[C\u001b[C\u001bserver.js)",
+    "start": "node server.js"
+  },
+  "author": "Nallely House",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.18.12",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-obfuscate": "^0.2.9",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^3.0.0"
+  },
+  "dependencies": {
+    "express": "^4.15.3"
+  }
+}
