@@ -4,12 +4,14 @@ var concat = require('gulp-concat');
 var sass = require('gulp-sass');
 var browserSync = require('browser-sync').create();
 var obfuscate = require('gulp-obfuscate');
+var filesExist = require('files-exist');
 
 var rutas = {
 	rutaJS: './src/assets/js/*.js',
 	rutaCSS: './src/assets/scss/*.scss',
 	ruraHTML:'src/*.html'
 };
+
 gulp.task('prepararHTML', function(){
 	gulp.src(rutas.ruraHTML)
 		.pipe(gulp.dest('./public/'))
@@ -29,7 +31,7 @@ gulp.task('prepararCSS', function(){
 	}).on('error', sass.logError))
 		.pipe(gulp.dest('./public/assets/css/'))
 });
-gulp.task('watchChangesCSS', function(){
+gulp.task('watchChanges', function(){
 	browserSync.init({
 		server:{
 			baseDir:'./public'
@@ -39,13 +41,7 @@ gulp.task('watchChangesCSS', function(){
 	gulp.watch(rutas.ruraHTML, ['html-watch']);
 	gulp.watch(rutas.rutaJS, ['js-watch']);
 });
-gulp.task('sass-watch', ['prepararCSS'], function(){
-	browserSync.reload();
-});
-gulp.task("js-watch", ["prepararJS"], function () {
+gulp.task('sass-watch', ['prepararCSS', "prepararJS", "prepararHTML"], function(){
 	browserSync.reload();
 });
 
-gulp.task("html-watch", ["prepararHTML"], function () {
-	browserSync.reload();
-});
